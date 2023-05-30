@@ -2,6 +2,7 @@ import {MouseEventHandler} from 'react'
 import tickets from '../assets/tickets.png'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import axios from 'axios';
+import {API_URL} from '../configAPI'
 
 interface PQRS{
     id: number,
@@ -16,7 +17,7 @@ interface PQRS{
 export default function Card({id, nombre, titulo, correo, descripcion, IDE, onClick} : PQRS) {
 
   const DeletePqrs = async(id: any) =>{
-    await axios.delete('http://localhost:4000/apipqrs/pqrs/'+id)
+    await axios.delete(API_URL+id)
     .then((res: any)=>{
       console.log(res);
       

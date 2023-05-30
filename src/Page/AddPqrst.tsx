@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import axios from 'axios';
+import { API_URL } from '../configAPI';
 
 export default function AddPqrst() {
     const [nombre, setNombre] = useState<string>("");
@@ -62,7 +63,7 @@ export default function AddPqrst() {
     const SubmitPqrs = (e: any ) =>{
         e.preventDefault();
 
-        axios.post('http://localhost:4000/apipqrs/type-documents', {
+        axios.post(`${API_URL}apipqrs/type-documents`, {
               ide: IDE,
               tipo_doc: tipo,
               nombre: nombre,

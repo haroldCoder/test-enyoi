@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Card from "../components/Card";
 import SearchIcon from '@mui/icons-material/Search';
 import CardMain from "../components/CardMain";
+import { API_URL } from "../configAPI";
 
 export default function Home() {
   const [data, setData] = useState<[]>([]);
@@ -19,18 +20,18 @@ export default function Home() {
   });
 
   const getPQRS = async() =>{
-    const res = (await axios.get('http://localhost:4000/apipqrs/pqrs')).data;
+    const res = (await axios.get(`${API_URL}apipqrs/pqrs`)).data;
     setData(res);
     
   }
 
   const getPqrsById = async() =>{
-    const res = (await axios.get('http://localhost:4000/apipqrs/pqrs/'+id)).data;
+    const res = (await axios.get(`${API_URL}apipqrs/pqrs/${id}`)).data;
     setData(res);
   }
 
   const getPqr = async() =>{
-    const res = (await axios.get('http://localhost:4000/apipqrs/pqrs/'+id)).data;
+    const res = (await axios.get(`${API_URL}apipqrs/pqrs/${id}`)).data;
     setPqr(res);
   }
 
