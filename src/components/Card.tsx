@@ -1,4 +1,4 @@
-import React, {MouseEventHandler} from 'react'
+import {MouseEventHandler} from 'react'
 import tickets from '../assets/tickets.png'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import axios from 'axios';

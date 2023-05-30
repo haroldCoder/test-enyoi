@@ -1,4 +1,3 @@
-import React from 'react'
 import coder from '../assets/coder-copia.png';
 import {Link} from 'react-router-dom';
 

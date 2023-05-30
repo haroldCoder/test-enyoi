@@ -1,4 +1,4 @@
-import React, {Dispatch, SetStateAction} from 'react'
+import {Dispatch, SetStateAction} from 'react'
 import CancelIcon from '@mui/icons-material/Cancel';
 import tickets from '../assets/tickets.png'
 
