@@ -37,13 +37,13 @@ export default function Home() {
 
   return (
     <>
-    <div className="flex justify-end my-10 mr-6 items-center">
+    <div className="flex justify-end my-10 mr-6 items-center p-3">
         <div onClick={getPqrsById} className="cursor-pointer bg-white rounded-full hover:bg-green-300">
           <SearchIcon />
         </div>
-        <input type="number" placeholder="search by ID" className="w-[20%] p-2 ml-2 rounded-md" value={id} onChange={(e)=>setID(Number.parseInt(e.target.value))} />
+        <input type="number" placeholder="search by ID" className="w-[20%] max-md:w-full p-2 ml-2 rounded-md" value={id} onChange={(e)=>setID(Number.parseInt(e.target.value))} />
       </div>
-    <div className='flex justify-evenly flex-wrap p-4'>
+    <div className='flex justify-evenly flex-wrap p-4 max-md:flex-col'>
       
       {
         data.map((e: any)=>(
@@ -53,7 +53,7 @@ export default function Home() {
     </div>
     {
       openCard ?
-      <div className="absolute top-[15%] left-[20%] w-[60%]">
+      <div className="absolute top-[15%] max-md:top-[0%] max-md:left-[0%] left-[20%] max-md:w-[100%] w-[60%]">
         {
           pqr.map((e: any)=>(
             <CardMain 

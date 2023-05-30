@@ -31,7 +31,7 @@ export default function Card({id, nombre, titulo, correo, descripcion, IDE, onCl
 
   return (
     <>
-    <div className='bg-slate-700 rounded-md mr-[5%] mb-12 w-[25%] cursor-pointer' onClick={onClick}>
+    <div className='bg-slate-700 rounded-md mr-[5%] mb-12 xl:w-[25%] max-md:w-[100%] md:w-[40%] cursor-pointer' onClick={onClick}>
       <div className='title flex p-2 justify-between bg-white'>
           <h2 className='text-green-600 font-semibold'>{nombre}</h2>
           <h2 className='text-green-600 font-semibold'>{IDE}</h2>
@@ -39,7 +39,7 @@ export default function Card({id, nombre, titulo, correo, descripcion, IDE, onCl
       <div className='flex justify-center mt-10'>
         <img src={tickets} />
       </div>
-      <div className='footer p-4 flex  justify-between'>
+      <div className='p-4 flex  justify-between'>
         <div className='text-white'>
           <h2>Correo: {correo}</h2>
           <h2>titulo: {titulo}</h2>

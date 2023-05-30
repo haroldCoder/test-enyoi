@@ -90,8 +90,8 @@ export default function AddPqrst() {
     }
 
   return (
-    <form action="" className='mt-8 px-24 w-[80%] ml-[10%]' onSubmit={SubmitPqrs}>
-        <div className='grid grid-cols-3 gap-10'>
+    <form action="" className='mt-8 px-24 xl:w-[80%] max-lg:w-[100%] max-lg:ml-[0%] max-md:px-10 ml-[10%]' onSubmit={SubmitPqrs}>
+        <div className='grid xl:grid-cols-3 max-md:grid-cols-1 md:grid-cols-2 gap-10'>
             <input type="text" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="nombre" value={nombre} onChange={onChangeNombre} />
             <input type="text" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="apellidos" value={Apellidos} onChange={onChangeApellido} />
             <input type="text" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="titulo de la pqrs" value={titulo} onChange={onChangeTitulo} />

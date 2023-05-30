@@ -13,10 +13,12 @@ function App() {
     <>
     <BrowserRouter>
       <Navbar />
-      <Routes>
-        <Route path='/' element={<Home/>} />
-        <Route path='/addpqrs' element={<AddPqrst/>} />
-      </Routes>
+      <div className="container max-md:min-h-screen max-md:pb-10 mb-10">
+        <Routes>
+            <Route path='/' element={<Home/>} />
+            <Route path='/addpqrs' element={<AddPqrst/>} />
+        </Routes>
+      </div>
       <Footer />
     </BrowserRouter>
     <ToastContainer />
