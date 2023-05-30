@@ -1,24 +1,21 @@
 const { Router } = require("express")
 const router = Router();
-const {getDocumentsType, typePqrs, Registers, getPqrs, getPqr, deletePqr, deletePqrs} = require("../controllers/pqrs.controllers")
+const {getDocumentsType, getPqrs, getPqr, deletePqr, deletePqrs} = require("../controllers/pqrs.controllers")
 
+//primer y tercer endpoint 
 router.route("/type-documents")
-.get(getDocumentsType)
+.post(getDocumentsType)
 
-router.route("/type-pqrs")
-.get(typePqrs)
-
-router.route("/registers")
-.post(Registers)
-
+//cuarto endpoint
 router.route("/pqrs")
 .get(getPqrs)
 
+
 router.route("/pqrs/:id")
-.get(getPqr)
-.delete(deletePqr)
+.get(getPqr) //quinto endpoint
+.delete(deletePqr) //sexto endpoint
 
 router.route("/pqrs/delete-ids")
-.delete(deletePqrs)
+.delete(deletePqrs) //septimo endpoint
 
 module.exports = router;
