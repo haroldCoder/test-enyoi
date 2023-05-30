@@ -9,7 +9,7 @@ router.route("/type-pqrs")
 .get(typePqrs)
 
 router.route("/registers")
-.get(Registers)
+.post(Registers)
 
 router.route("/pqrs")
 .get(getPqrs)
@@ -20,3 +20,5 @@ router.route("/pqrs/:id")
 
 router.route("/pqrs/delete-ids")
 .delete(deletePqrs)
+
+module.exports = router;
