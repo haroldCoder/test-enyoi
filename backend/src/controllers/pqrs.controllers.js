@@ -48,14 +48,19 @@ function isValidEmail(email) {
 }
 
 pqrs.Registers = (req, res) => {
-    const {ide, tipo_doc, nombre, apellidos, numero, tel, email, titulo, ticket, content_ticket, estado} = req.body;
+    try{
+        const {ide, tipo_doc, nombre, apellidos, numero, tel, email, titulo, ticket, content_ticket, estado} = req.body;
 
-    db.query(`INSERT INTO pqrs(IDE, Tipo, Nombre, Apellidos, Numero, Tel, Email, Titulo, Ticket, Content_ticket, Estado) 
-    VALUES(${ide}, "${tipo_doc}", "${nombre}", "${apellidos}", ${numero}, ${tel}, "${email}", "${titulo}", "${ticket}", "${content_ticket}", "${estado}")`, (err, result)=>{
-        if(err) throw err, res.send(err), res.status(500);
-        else
-            res.status(200).send("pqrs Ingresada");
-    });
+        db.query(`INSERT INTO pqrs(IDE, Tipo, Nombre, Apellidos, Numero, Tel, Email, Titulo, Ticket, Content_ticket, Estado) 
+        VALUES(${ide}, "${tipo_doc}", "${nombre}", "${apellidos}", ${numero}, ${tel}, "${email}", "${titulo}", "${ticket}", "${content_ticket}", "${estado}")`, (err, result)=>{
+            if(err) throw err, res.send(err), res.status(500);
+            else
+                res.status(200).send("pqrs Ingresada");
+        });
+    }
+    catch(err){
+        res.status(500).send(err)
+    }
 }
 
 pqrs.getPqrs = (req, res) =>{
