@@ -1,6 +1,10 @@
 import React from 'react'
+import tickets from '../assets/tickets.png'
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import axios from 'axios';
 
 interface PQRS{
+    id: number,
     nombre: string,
     titulo: string,
     correo: string,
@@ -8,14 +12,41 @@ interface PQRS{
     IDE: number
 }
 
-export default function Card({nombre, titulo, correo, descripcion, IDE} : PQRS) {
+export default function Card({id, nombre, titulo, correo, descripcion, IDE} : PQRS) {
+
+  const DeletePqrs = async(id: any) =>{
+    await axios.delete('http://localhost:4000/apipqrs/pqrs/'+id)
+    .then((res: any)=>{
+      console.log(res);
+      
+    })
+    .catch((err: any)=>{
+      console.log(err);
+      
+    })
+  }
+
   return (
     <>
-        <div className='text-green-400'>{nombre}</div>
-        <div className='text-green-400'>{titulo}</div>
-        <div className='text-green-400'>{correo}</div>
-        <div className='text-green-400'>{descripcion}</div>
-        <div className='text-green-400'>{IDE}</div>
+    <div className='bg-slate-700 rounded-md w-[25%]'>
+      <div className='title flex p-2 justify-between bg-white'>
+          <h2 className='text-green-600 font-semibold'>{nombre}</h2>
+          <h2 className='text-green-600 font-semibold'>{IDE}</h2>
+      </div>
+      <div className='flex justify-center mt-10'>
+        <img src={tickets} />
+      </div>
+      <div className='footer p-4 flex  justify-between'>
+        <div className='text-white'>
+          <h2>Correo: {correo}</h2>
+          <h2>titulo: {titulo}</h2>
+          <h2>descripcion: {descripcion}</h2>
+        </div>
+        <div className='flex cursor-pointer' onClick={()=>DeletePqrs(id)}>
+            <DeleteForeverIcon style={{fontSize: '39px'}}/>
+        </div>
+      </div>
+    </div>
     </>
   )
 }
