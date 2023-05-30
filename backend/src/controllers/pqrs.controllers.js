@@ -64,6 +64,9 @@ pqrs.getPqr = (req, res) =>{
     const {id} = req.params;
     db.query(`SELECT * FROM pqrs WHERE ID = ${id}`, (err, result)=>{
         if(err) throw err;
+        else if(id == null){
+            res.status(400).send("no se proporciono ningun id");
+        }
         else 
             res.status(200).send(result);
     });
@@ -74,6 +77,9 @@ pqrs.deletePqr = (req, res) =>{
 
     db.query(`DELETE FROM pqrs WHERE ID = ${id}`, (err, result)=>{
         if(err) throw err, res.send(err)
+        else if(id == null){
+            res.status(400).send("no se proporciono ningun id");
+        }
         else
             res.status(200).send("Pqrs Eliminada");
     })
