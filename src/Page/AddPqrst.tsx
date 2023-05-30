@@ -99,8 +99,8 @@ export default function AddPqrst() {
             <input type="text" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="descripcion" value={descript} onChange={onChangeDescript} />
             <input type="number" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="Numero de identificacion" value={IDE} onChange={onChangeIde} />
             <input type="text" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="tipo de documento" value={tipo} onChange={onChangeTipo} />
-            <input type="number" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' maxLength={12} placeholder="numero de celular" value={numero} onChange={onChangeNumero} />
-            <input type="text" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="telefono fijo" value={tel} onChange={onChangeTel} />
+            <input type="tel" maxLength={12} className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="numero de celular" value={numero} onChange={onChangeNumero} />
+            <input type="tel" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="telefono fijo" value={tel} onChange={onChangeTel} />
             <input type="text" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="ticket" value={ticket} onChange={onChangeTicket} />
             <input type="text" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="contenido de la pqrs" value={content} onChange={onChangeContent} />
             <input type="number" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="estado de la pqrs(abierto o cerrado)" value={state} onChange={onChangeState} />
