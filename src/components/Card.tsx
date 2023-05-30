@@ -3,6 +3,7 @@ import tickets from '../assets/tickets.png'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import axios from 'axios';
 import {API_URL} from '../configAPI'
+import {toast} from 'react-toastify';
 
 interface PQRS{
     id: number,
@@ -17,14 +18,14 @@ interface PQRS{
 export default function Card({id, nombre, titulo, correo, descripcion, IDE, onClick} : PQRS) {
 
   const DeletePqrs = async(id: any) =>{
-    await axios.delete(API_URL+id)
+    await axios.delete(`${API_URL}apipqrs/pqrs/${id}`)
     .then((res: any)=>{
       console.log(res);
-      
+      toast.success(res.data)
     })
     .catch((err: any)=>{
       console.log(err);
-      
+      toast.error(err.response.data)
     })
   }
 
@@ -44,7 +45,10 @@ export default function Card({id, nombre, titulo, correo, descripcion, IDE, onCl
           <h2>titulo: {titulo}</h2>
           <h2>descripcion: {descripcion}</h2>
         </div>
-        <div className='flex cursor-pointer' onClick={()=>DeletePqrs(id)}>
+        <div className='flex cursor-pointer' onClick={(e) => {
+          e.stopPropagation();
+          DeletePqrs(id);
+        }}>
             <DeleteForeverIcon style={{fontSize: '39px'}}/>
         </div>
       </div>

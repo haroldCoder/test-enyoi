@@ -83,7 +83,7 @@ pqrs.deletePqr = (req, res) =>{
 
     db.query(`DELETE FROM pqrs WHERE ID = ${id}`, (err, result)=>{
         if(err) throw err, res.send(err)
-        else if(id == null){
+        if(id == null){
             res.status(400).send("no se proporciono ningun id");
         }
         else
