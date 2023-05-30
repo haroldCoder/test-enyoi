@@ -6,9 +6,7 @@ pqrs.getDocumentsType = (req, res) =>{
 
     // Verificar que todos los campos requeridos estén presentes
     if (!ide || !nombre || !apellidos || !numero || !email || !titulo || !ticket || !content_ticket || !estado) {
-        console.log(ide, tipo_doc, nombre, apellidos, numero, tel, email, titulo, ticket, content_ticket, estado);
         return res.status(400).send("Faltan campos requeridos");
-        
     }
 
     // Validar el formato de los campos con restricciones

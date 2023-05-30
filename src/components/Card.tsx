@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {MouseEventHandler} from 'react'
 import tickets from '../assets/tickets.png'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import axios from 'axios';
@@ -9,10 +9,11 @@ interface PQRS{
     titulo: string,
     correo: string,
     descripcion: string,
-    IDE: number
+    IDE: number,
+    onClick: MouseEventHandler<HTMLDivElement>
 }
 
-export default function Card({id, nombre, titulo, correo, descripcion, IDE} : PQRS) {
+export default function Card({id, nombre, titulo, correo, descripcion, IDE, onClick} : PQRS) {
 
   const DeletePqrs = async(id: any) =>{
     await axios.delete('http://localhost:4000/apipqrs/pqrs/'+id)
@@ -28,7 +29,7 @@ export default function Card({id, nombre, titulo, correo, descripcion, IDE} : PQ
 
   return (
     <>
-    <div className='bg-slate-700 rounded-md w-[25%]'>
+    <div className='bg-slate-700 rounded-md mr-[5%] mb-12 w-[25%] cursor-pointer' onClick={onClick}>
       <div className='title flex p-2 justify-between bg-white'>
           <h2 className='text-green-600 font-semibold'>{nombre}</h2>
           <h2 className='text-green-600 font-semibold'>{IDE}</h2>
