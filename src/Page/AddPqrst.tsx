@@ -15,7 +15,7 @@ export default function AddPqrst() {
     const [tel, setTel] = useState<number | any>();
     const [ticket, setTicket] = useState<string>("");
     const [content, setContent] = useState<string>("");
-    const [state, setState] = useState<number>();
+    const [state, setState] = useState<number>(0);
 
     const onChangeNombre = (e: any) =>{
         setNombre(e.target.value)
@@ -98,12 +98,16 @@ export default function AddPqrst() {
             <input type="text" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="correo electronico" value={correo} onChange={onChangeCorreo}/>
             <input type="text" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="descripcion" value={descript} onChange={onChangeDescript} />
             <input type="number" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="Numero de identificacion" value={IDE} onChange={onChangeIde} />
-            <input type="text" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="tipo de documento" value={tipo} onChange={onChangeTipo} />
+            <select className='bg-gray-600 text-white border-green-500 p-1 rounded-sm' value={tipo} onChange={onChangeTipo}>
+                <option value='C.C'>C.C</option>
+                <option value='T.I'>T.I</option>
+                <option value='C.E'>Cedula extranjera</option>
+            </select>
             <input type="tel" maxLength={12} className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="numero de celular" value={numero} onChange={onChangeNumero} />
             <input type="tel" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="telefono fijo" value={tel} onChange={onChangeTel} />
             <input type="text" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="ticket" value={ticket} onChange={onChangeTicket} />
             <input type="text" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="contenido de la pqrs" value={content} onChange={onChangeContent} />
-            <input type="number" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="estado de la pqrs(abierto o cerrado)" value={state} onChange={onChangeState} />
+            <input type="number" max={1} className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="estado de la pqrs(1:abierto o 0:cerrado)" value={state} onChange={onChangeState} />
         </div>
         <button className='bg-green-500 text-white p-3 rounded-md w-[100%] mt-10'>Enviar Pqrs</button>
     </form>
