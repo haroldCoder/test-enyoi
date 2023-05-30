@@ -4,7 +4,6 @@ import Card from "../components/Card";
 import SearchIcon from '@mui/icons-material/Search';
 import CardMain from "../components/CardMain";
 import { API_URL } from "../configAPI";
-import {ToastContainer} from 'react-toastify'
 
 export default function Home() {
   const [data, setData] = useState<[]>([]);

@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import axios from 'axios';
 import { API_URL } from '../configAPI';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 export default function AddPqrst() {
     const [nombre, setNombre] = useState<string>("");
