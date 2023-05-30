@@ -74,7 +74,7 @@ export default function AddPqrst() {
               titulo: titulo,
               ticket: ticket,
               content_ticket: content,
-              estado: state
+              estado: state == 1 ? "abierto" : "cerrado"
             }
         )
         .then((res: any)=>{
@@ -98,7 +98,7 @@ export default function AddPqrst() {
             <input type="text" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="descripcion" value={descript} onChange={onChangeDescript} />
             <input type="number" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="IDE" value={IDE} onChange={onChangeIde} />
             <input type="text" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="tipo" value={tipo} onChange={onChangeTipo} />
-            <input type="number" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="numero" value={numero} onChange={onChangeNumero} />
+            <input type="number" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' maxLength={12} placeholder="numero" value={numero} onChange={onChangeNumero} />
             <input type="text" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="tel" value={tel} onChange={onChangeTel} />
             <input type="text" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="ticket" value={ticket} onChange={onChangeTicket} />
             <input type="text" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="content" value={content} onChange={onChangeContent} />
