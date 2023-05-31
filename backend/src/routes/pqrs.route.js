@@ -2,6 +2,8 @@ const { Router } = require("express")
 const router = Router();
 const {getDocumentsType, getPqrs, getPqr, deletePqr, deletePqrs} = require("../controllers/pqrs.controllers")
 
+//creacion de rutas
+
 //primer y tercer endpoint 
 router.route("/type-documents")
 .post(getDocumentsType)

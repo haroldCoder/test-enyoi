@@ -49,34 +49,36 @@ function isValidEmail(email) {
 
 pqrs.Registers = (req, res) => {
     try{
+        //en caso de que no haya errores se trae los argunmentos del body
         const {ide, tipo_doc, nombre, apellidos, numero, tel, email, titulo, ticket, content_ticket, estado} = req.body;
 
+        //se hace la query a la db para ingresar todo lo del body a la db
         db.query(`INSERT INTO pqrs(IDE, Tipo, Nombre, Apellidos, Numero, Tel, Email, Titulo, Ticket, Content_ticket, Estado) 
         VALUES(${ide}, "${tipo_doc}", "${nombre}", "${apellidos}", ${numero}, ${tel}, "${email}", "${titulo}", "${ticket}", "${content_ticket}", "${estado}")`, (err, result)=>{
             if(err) throw err, res.send(err), res.status(500);
             else
-                res.status(200).send("pqrs Ingresada");
+                res.status(200).send("pqrs Ingresada"); //en caso de que no hayan errores, responde esto
         });
     }
     catch(err){
-        res.status(500).send(err)
+        res.status(500).send(err) // si por algun motivo algo falla, envia un status y el mensaje de error
     }
 }
 
 pqrs.getPqrs = (req, res) =>{
-    db.query(`SELECT * FROM pqrs`, (err, result)=>{
+    db.query(`SELECT * FROM pqrs`, (err, result)=>{ // se ejecuta la query para la busqueda de todos los datos en la tabla pqrs
         if(err) throw err;
         else 
-            res.status(200).send(result);
+            res.status(200).send(result); // se responde con status 200 y los datos
     });
 }
 
 pqrs.getPqr = (req, res) =>{
     const {id} = req.params;
-    db.query(`SELECT * FROM pqrs WHERE ID = ${id}`, (err, result)=>{
+    db.query(`SELECT * FROM pqrs WHERE ID = ${id}`, (err, result)=>{ // consulta para buscar los datos por un id
         if(err) throw err;
         else if(id == null){
-            res.status(400).send("no se proporciono ningun id");
+            res.status(400).send("no se proporciono ningun id"); // en caso de que no se proporcione ningun id, arroje error
         }
         else 
             res.status(200).send(result);
@@ -86,7 +88,7 @@ pqrs.getPqr = (req, res) =>{
 pqrs.deletePqr = (req, res) =>{
     const {id} = req.params;
 
-    db.query(`DELETE FROM pqrs WHERE ID = ${id}`, (err, result)=>{
+    db.query(`DELETE FROM pqrs WHERE ID = ${id}`, (err, result)=>{ // eleminar algun dato por su id
         if(err) throw err, res.send(err)
         if(id == null){
             res.status(400).send("no se proporciono ningun id");
