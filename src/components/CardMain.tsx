@@ -19,7 +19,7 @@ interface PQRS{
     open: Dispatch<SetStateAction<boolean>>
 }
 
-export default function CardMain({id, nombre, titulo, correo, descripcion, IDE, tipo_doc, numero, tel, ticket, content_ticket, estado, open}: PQRS) {
+export default function CardMain({id, nombre, titulo, correo, descripcion, IDE, tipo_doc, numero, tel, ticket, content_ticket, estado, open}: PQRS) { //mismo sistema de la card, solo que se pasan mas datos
   return (
     <div className='bg-gray-800 w-full p-4 text-white rounded-lg'>
   <section className='flex border-b-1 p-2 border-gray-400'>

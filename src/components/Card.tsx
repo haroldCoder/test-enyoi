@@ -13,9 +13,9 @@ interface PQRS{
     descripcion: string,
     IDE: number,
     onClick: MouseEventHandler<HTMLDivElement>
-}
+} //interface para saber que datos ira en las props
 
-export default function Card({id, nombre, titulo, correo, descripcion, IDE, onClick} : PQRS) {
+export default function Card({id, nombre, titulo, correo, descripcion, IDE, onClick} : PQRS) { //la card hace uso de las props para traer datos, desde donde se quiera añadir una nueva targeta
 
   const DeletePqrs = async(id: any) =>{
     await axios.delete(`${API_URL}apipqrs/pqrs/${id}`)

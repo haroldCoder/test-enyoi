@@ -15,7 +15,7 @@ export default function AddPqrst() {
     const [tel, setTel] = useState<number | any>();
     const [ticket, setTicket] = useState<string>("");
     const [content, setContent] = useState<string>("");
-    const [state, setState] = useState<number>(0);
+    const [state, setState] = useState<number>(0); /** todos los controladores para capturar los datos de los campos */
 
     const onChangeNombre = (e: any) =>{
         setNombre(e.target.value)
@@ -61,7 +61,7 @@ export default function AddPqrst() {
         setState(e.target.value)
     }
 
-    const SubmitPqrs = (e: any ) =>{
+    const SubmitPqrs = (e: any ) =>{ //cuando se le da clcik al boton del form se llama a la funcion que hace la peticion a la api
         e.preventDefault();
 
         axios.post(`${API_URL}apipqrs/type-documents`, {

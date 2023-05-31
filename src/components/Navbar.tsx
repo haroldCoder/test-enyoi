@@ -11,7 +11,8 @@ export default function Navbar() {
             <Link to='/'><h2 className='text-white text-lg hover:text-green-500 max-md:text-center'>Home</h2></Link>
             <Link to='/addpqrs'><h2 className='text-white text-lg hover:text-green-500 max-md:text-center'>Añadir Pqrs</h2></Link>
             <a href="https://harold-enyoi.netlify.app/" className='text-white text-lg hover:text-green-500 max-md:text-center'>Portafolio</a>
-        </div>
+            {/* link de los menu de navegacion */}
+        </div> 
     </div>
   )
 }

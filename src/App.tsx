@@ -11,15 +11,15 @@ function App() {
 
   return (
     <>
-    <BrowserRouter>
-      <Navbar />
+    <BrowserRouter> {/* usamos el browse router para crear el enrutamiento de la web */}
+      <Navbar /> {/* Navegacion */}
       <div className="container max-md:min-h-screen max-md:pb-10 mb-10">
         <Routes>
-            <Route path='/' element={<Home/>} />
-            <Route path='/addpqrs' element={<AddPqrst/>} />
+            <Route path='/' element={<Home/>} /> {/* en la ruta principal usamos el componente Home */}
+            <Route path='/addpqrs' element={<AddPqrst/>} /> {/* en la ruta para añadir un nuevo pqrs usamos el componente AddPqrst */}
         </Routes>
       </div>
-      <Footer />
+      <Footer /> {/* Footer */}
     </BrowserRouter>
     <ToastContainer />
     </>

@@ -4,6 +4,6 @@ export default function Footer() {
         <h1 className='text-2xl text-green-500 font-semibold'>
         Copyright ©Koderx Development 2023
         </h1>
-    </div>
+    </div> //footer
     )
 }
