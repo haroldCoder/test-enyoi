@@ -6,6 +6,7 @@ const {
     DB_USER,
     DB_PORT,
   } = require("./credentials");
+//inicializanos la conexion con la db
 
 const db = mysql.createConnection({
     port: DB_PORT,
@@ -15,6 +16,7 @@ const db = mysql.createConnection({
     "user": DB_USER,
 })
 
+//se confirma la conexion
 db.connect((err)=>{
     if(err) throw err;
     console.log('db connect');
