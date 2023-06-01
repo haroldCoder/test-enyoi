@@ -94,12 +94,23 @@ pqrs.deletePqr = (req, res) =>{
             res.status(400).send("no se proporciono ningun id");
         }
         else
-            res.status(200).send("Pqrs Eliminada");
+            res.status(200).send("Pqr Eliminada");
     })
 }
 
 pqrs.deletePqrs = (req, res) =>{
+    const array = req.body; //requerimos el arreglo desde el body
 
+    for(let i = 0; i<array.length; i++){ //creamos un bucle para recorrer desde 0 hasta la longitud del array
+        db.query(`DELETE FROM pqrs WHERE ID = ${array[i]}`, (err, result)=>{ // eleminar algun dato por el id actual dependiendo de donde este el indice
+            if(err) throw err, res.send(err)
+            if(array.length <= 0){
+                res.status(400).send("no se proporciono ningun id");
+            }
+            else
+                res.status(200).send("Pqrs Eliminadas");
+        })
+    }
 }
 
 module.exports = pqrs;
