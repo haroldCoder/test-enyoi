@@ -35,6 +35,8 @@ export default function AddPqrst() {
 
     const onChangeTipo = (e: any) =>{
         setTipo(e.target.value)
+        console.log(e.target.value);
+        
     }
 
     const onChangeNumero = (e: any) =>{
@@ -99,6 +101,7 @@ export default function AddPqrst() {
             <input type="text" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="descripcion" value={descript} onChange={onChangeDescript} />
             <input type="number" className='bg-gray-600 text-white border-gren-500 p-1 rounded-sm' placeholder="Numero de identificacion" value={IDE} onChange={onChangeIde} />
             <select className='bg-gray-600 text-white border-green-500 p-1 rounded-sm' value={tipo} onChange={onChangeTipo}>
+                <option value=""></option>
                 <option value='C.C'>C.C</option>
                 <option value='T.I'>T.I</option>
                 <option value='C.E'>Cedula extranjera</option>

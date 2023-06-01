@@ -11,7 +11,8 @@ pqrs.getDocumentsType = (req, res) =>{
         }
 
         // Validar el formato de los campos con restricciones
-        if (tipo_doc !== "C.C" && tipo_doc !== "T.I" && tipo_doc !== "C.E") {
+        if (tipo_doc !== "T.I" && tipo_doc !== "C.E" && tipo_doc !== "C.C") {
+            console.log(tipo_doc);
             return res.status(400).send("Tipo de documento inválido: C.C o T.i o X");
         }
 
