@@ -1,4 +1,4 @@
-import {MouseEventHandler} from 'react'
+import {Dispatch, MouseEventHandler, SetStateAction} from 'react'
 import tickets from '../assets/tickets.png'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import axios from 'axios';
@@ -12,10 +12,12 @@ interface PQRS{
     correo: string,
     descripcion: string,
     IDE: number,
-    onClick: MouseEventHandler<HTMLDivElement>
+    onClick: MouseEventHandler<HTMLDivElement>,
+    check: boolean,
+    ArrayIds: Dispatch<SetStateAction<number[]>>
 } //interface para saber que datos ira en las props
 
-export default function Card({id, nombre, titulo, correo, descripcion, IDE, onClick} : PQRS) { //la card hace uso de las props para traer datos, desde donde se quiera añadir una nueva targeta
+export default function Card({id, nombre, titulo, correo, descripcion, IDE, onClick, check, ArrayIds} : PQRS) { //la card hace uso de las props para traer datos, desde donde se quiera añadir una nueva targeta
 
   const DeletePqrs = async(id: any) =>{
     await axios.delete(`${API_URL}apipqrs/pqrs/${id}`)
@@ -27,6 +29,11 @@ export default function Card({id, nombre, titulo, correo, descripcion, IDE, onCl
       console.log(err);
       toast.error(err.response.data)
     })
+  }
+
+  const Añadir = () =>{
+    ArrayIds(prevIds => [...prevIds, id]);
+    
   }
 
   return (
@@ -51,6 +58,14 @@ export default function Card({id, nombre, titulo, correo, descripcion, IDE, onCl
         }}>
             <DeleteForeverIcon style={{fontSize: '39px'}}/>
         </div>
+      </div>
+      <div className='px-3 py-3'>
+        {
+          check ?
+          <input onClick={(e)=>e.stopPropagation()} onChange={(e)=>{e.target.checked == true ? Añadir() : null}} className='w-6 h-6 cursor-pointer'  type="checkbox" />
+          :null
+        }
+        
       </div>
     </div>
     </>

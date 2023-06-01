@@ -99,18 +99,30 @@ pqrs.deletePqr = (req, res) =>{
 }
 
 pqrs.deletePqrs = (req, res) =>{
-    const array = req.body; //requerimos el arreglo desde el body
+    const { array } = req.body;
+    console.log(array);
 
-    for(let i = 0; i<array.length; i++){ //creamos un bucle para recorrer desde 0 hasta la longitud del array
-        db.query(`DELETE FROM pqrs WHERE ID = ${array[i]}`, (err, result)=>{ // eleminar algun dato por el id actual dependiendo de donde este el indice
-            if(err) throw err, res.send(err)
-            if(array.length <= 0){
-                res.status(400).send("no se proporciono ningun id");
-            }
-            else
-                res.status(200).send("Pqrs Eliminadas");
-        })
+    if (array.length <= 0) {
+        res.status(400).send("No se proporcionó ningún ID");
+        return; // Detener la ejecución si no se proporcionó ningún ID
     }
+
+    const deletePromises = array.map(id => {
+        return new Promise((resolve, reject) => {
+        db.query(`DELETE FROM pqrs WHERE ID = ${id}`, (err, result) => {
+            if (err) reject(err);
+            else resolve();
+        });
+        });
+    });
+
+    Promise.all(deletePromises)
+        .then(() => {
+        res.status(200).send("Pqrs eliminadas");
+        })
+        .catch(err => {
+        res.status(500).send(err);
+        });
 }
 
 module.exports = pqrs;
