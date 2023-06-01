@@ -57,9 +57,9 @@ export default function Home() {
 
   return (
     <>
-    <div className="flex justify-between p-4 items-center">
-      <button onClick={()=>setCheck(true)} className="bg-white text-green-600 h-16 w-[20%] rounded-md p-2 font-semibold">Seleccionar varios</button>
-      <button onClick={EliminarPqrs} className="bg-red-600 text-white py-3 px-7 rounded-md ml-8">Eliminar</button>
+    <div className="flex justify-between max-lg:flex-col p-4 items-center">
+      <button onClick={()=>setCheck(true)} className="bg-white text-green-600 h-16 max-lg:w-[100%] lg:w-[20%] rounded-md p-2 font-semibold">Seleccionar varios</button>
+      <button onClick={EliminarPqrs} className="bg-red-600 max-lg:mt-4 text-white py-3 px-7 rounded-md ml-8">Eliminar</button>
       <div className="flex justify-end my-10 mr-6 items-center w-[100%] p-3">
             {/* motor de busqueda el cual hace uso de la funcion para llamar dato por id especifico */}
         <div onClick={getPqrsById} className="cursor-pointer bg-white rounded-full hover:bg-green-300"> 
