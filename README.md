@@ -15,7 +15,7 @@ npm install
 npm run dev
 ```
 
-##DATABASE 
+## DATABASE 
 CREATE TABLE pqrs(
     ID INT PRIMARY KEY AUTO_INCREMENT,
     IDE INT NOT NULL,
